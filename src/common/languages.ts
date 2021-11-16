@@ -1,0 +1,43 @@
+export interface LanguageConfig {
+  readonly name: string;
+  readonly lang: string;
+}
+
+export const Languages: LanguageConfig[] = [
+  { name: 'Plain Text', lang: 'text' },
+  { name: 'Bash', lang: 'bash' },
+  { name: 'C', lang: 'c' },
+  { name: 'C#', lang: 'csharp' },
+  { name: 'C++', lang: 'cpp' },
+  { name: 'CSS', lang: 'css' },
+  { name: 'Diff', lang: 'diff' },
+  { name: 'Golang', lang: 'go' },
+  { name: 'INI', lang: 'ini' },
+  { name: 'HTML', lang: 'xml' },
+  { name: 'Java', lang: 'java' },
+  { name: 'JavaScript', lang: 'javascript' },
+  { name: 'JSON', lang: 'json' },
+  { name: 'Kotlin', lang: 'kotlin' },
+  { name: 'Less', lang: 'less' },
+  { name: 'Lua', lang: 'lua' },
+  { name: 'Makefile', lang: 'makefile' },
+  { name: 'Markdown', lang: 'markdown' },
+  { name: 'Objective-C', lang: 'objectivec' },
+  { name: 'Perl', lang: 'perl' },
+  { name: 'PHP', lang: 'php' },
+  { name: 'PHP Template', lang: 'php-template' },
+  { name: 'Python', lang: 'python' },
+  { name: 'Python REPL', lang: 'python-repl' },
+  { name: 'R', lang: 'r' },
+  { name: 'Ruby', lang: 'ruby' },
+  { name: 'Rust', lang: 'rust' },
+  { name: 'SCSS', lang: 'scss' },
+  { name: 'Shell Session', lang: 'shell' },
+  { name: 'SQL', lang: 'sql' },
+  { name: 'Swift', lang: 'swift' },
+  { name: 'TOML', lang: 'ini' },
+  { name: 'TypeScript', lang: 'typescript' },
+  { name: 'Visual Basic .NET', lang: 'vbnet' },
+  { name: 'XML', lang: 'xml' },
+  { name: 'YAML', lang: 'yaml' },
+];

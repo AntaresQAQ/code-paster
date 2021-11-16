@@ -1,0 +1,86 @@
+<% this.title = "剪贴板" %>
+<%- include("header") %>
+
+<div class="ui segment">
+  <form class="ui form" method='post'>
+    <div class="field" id='title-field'>
+      <label for="title">标题</label>
+      <input type="text" name="title" id="title" placeholder="输入一个标题" maxlength='24'>
+    </div>
+    <div class='two fields'>
+      <div class="field">
+        <label for="limit">时效</label>
+        <div class="ui selection dropdown">
+          <input type="hidden" name="limit" id="limit">
+          <i class="dropdown icon"></i>
+          <div class="default text">选择失效时间</div>
+          <div class="menu">
+            <div class="item" data-value="1">1天</div>
+            <div class="item" data-value="7">7天</div>
+            <div class="item" data-value="30">30天</div>
+            <div class="item" data-value="90">90天</div>
+            <div class="item" data-value="360">360天</div>
+            <div class="item" data-value="0">无限</div>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="lang">语言</label>
+        <div class="ui selection dropdown">
+          <input type="hidden" name="lang" id="lang">
+          <i class="dropdown icon"></i>
+          <div class="default text">选择语言</div>
+          <div class="menu">
+            <% for (const language of languages) { %>
+              <div class="item" data-value="<%= language.lang %>"><%= language.name %></div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='field' id='code-field'>
+      <label for='code'>代码</label>
+      <textarea name='code' id='code'
+                style='resize: none;' rows='25'
+                placeholder='在这里粘贴你的代码'></textarea>
+    </div>
+    <% if (recaptchaEnable) { %>
+      <div class='field'>
+        <label>人机验证</label>
+        <div id='recaptcha'></div>
+      </div>
+    <% } %>
+    <button class='ui large <% if(recaptchaEnable) { %>disabled <% } %>green submit button'
+            id='submit-button' type='submit'>提交
+    </button>
+  </form>
+</div>
+<% if (recaptchaEnable) { %>
+  <script>
+    function recaptchaOnloadCallback() {
+      grecaptcha.render('recaptcha', {
+        sitekey: '<%- recaptchaSitekey %>',
+        callback: () => $('#submit-button').removeClass('disabled'),
+        'expired-callback': () => $('#submit-button').addClass('disabled'),
+        'error-callback': () => $('#submit-button').addClass('disabled'),
+      });
+    }
+  </script>
+  <script src="https://www.recaptcha.net/recaptcha/api.js?onload=recaptchaOnloadCallback&render=explicit"
+          async defer></script>
+<% } %>
+<script>
+  $(document).ready(() => {
+    $('.ui.form').form({
+      fields: {
+        title: ['maxLength[24]', 'empty'],
+        limit: ['empty'],
+        lang: ['empty'],
+        code: ['empty'],
+      },
+    });
+    $('.dropdown').dropdown();
+  });
+</script>
+
+<%- include("footer") %>

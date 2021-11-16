@@ -1,0 +1,35 @@
+<% this.title = title %>
+<%- include("header") %>
+
+<div class="ui segment">
+  <h2 class="ui header"><%= title %></h2>
+  <div class="ui divider"></div>
+  <div class="ui container">
+    <span>创建时间: <%= time %></span>
+    <span style='margin-left: 20px'>过期时间: <%= expiration || 'N/A' %></span>
+    <a style='margin-left: 30px'
+       class="ui blue tiny label"
+       data-clipboard-target="#code"
+       id='copy-btn'
+    >复制</a>
+    <pre><code id='code' class="language-<%= lang %>"><%= code %></code></pre>
+  </div>
+</div>
+
+<script>
+  $(document).ready(() => {
+    $('code .hljs').each((i, block) => {
+      hljs.lineNumbersBlock(block);
+    });
+    const clipboard = new ClipboardJS('#copy-btn');
+    clipboard.on('success', function (e) {
+      alert('代码已复制到剪贴板');
+    });
+    clipboard.on('error', function (e) {
+      console.error(e);
+      alert('出错了');
+    });
+  });
+</script>
+
+<%- include("footer")%>
