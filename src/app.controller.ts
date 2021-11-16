@@ -29,6 +29,9 @@ export class AppController {
   async paste(): Promise<IndexRenderDto> {
     return {
       languages: Languages,
+      recaptchaSitekey: this.configSevice.config.recaptcha.enable
+        ? this.configSevice.config.recaptcha.siteKey
+        : null,
     };
   }
 

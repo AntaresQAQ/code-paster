@@ -44,18 +44,18 @@
                 style='resize: none;' rows='25'
                 placeholder='在这里粘贴你的代码'></textarea>
     </div>
-    <% if (recaptchaEnable) { %>
+    <% if (recaptchaSitekey) { %>
       <div class='field'>
         <label>人机验证</label>
         <div id='recaptcha'></div>
       </div>
     <% } %>
-    <button class='ui large <% if(recaptchaEnable) { %>disabled <% } %>green submit button'
+    <button class='ui large <% if(recaptchaSitekey) { %>disabled <% } %>green submit button'
             id='submit-button' type='submit'>提交
     </button>
   </form>
 </div>
-<% if (recaptchaEnable) { %>
+<% if (recaptchaSitekey) { %>
   <script>
     function recaptchaOnloadCallback() {
       grecaptcha.render('recaptcha', {

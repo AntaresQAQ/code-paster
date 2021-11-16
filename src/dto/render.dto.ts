@@ -2,6 +2,7 @@ import { LanguageConfig } from '@/common/languages';
 
 export class IndexRenderDto {
   readonly languages: LanguageConfig[];
+  readonly recaptchaSitekey: string;
 }
 
 export class PasteRenderDto {
