@@ -8,7 +8,7 @@ export class AppMiddleware implements NestMiddleware {
   constructor(readonly configService: ConfigService) {}
 
   use(req: Request, res: Response, next: () => void) {
-    res.locals.pageConfig = this.configService.config.page;
+    res.locals.pageTitle = this.configService.config.page.title;
     res.locals.recaptchaEnable = this.configService.config.recaptcha.enable;
     if (this.configService.config.recaptcha.enable) {
       res.locals.recaptchaSitekey = this.configService.config.recaptcha.siteKey;

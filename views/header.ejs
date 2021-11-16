@@ -1,17 +1,16 @@
-<%- include("util") %>
 <!DOCTYPE html>
 <html lang='en'>
 <head>
   <meta charset='UTF-8'>
-  <title><%= this.title %></title>
-  <link rel="stylesheet" href="<%= cdnUrl %>/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+  <title><%= this.title + ' - ' + pageTitle %></title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
   <link rel="stylesheet"
-        href="<%= cdnUrl %>/gh/highlightjs/cdn-release@11.3.1/build/styles/base16/atelier-seaside-light.min.css">
-  <script src="<%= cdnUrl %>/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-  <script src="<%= cdnUrl %>/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-  <script src="<%= cdnUrl %>/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js"></script>
-  <script src="<%= cdnUrl %>/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
-  <script src="<%= cdnUrl %>/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
+        href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/base16/atelier-seaside-light.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
   <script>
     hljs.highlightAll();
     hljs.initLineNumbersOnLoad();
@@ -20,4 +19,4 @@
 </head>
 <body style='background-color: cornsilk'>
 <div class='ui main container' style='margin-top: 60px'>
-  <h1><%= pageConfig.title %></h1>
+  <h1><%= pageTitle %></h1>

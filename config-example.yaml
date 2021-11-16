@@ -14,7 +14,6 @@ database:
 
 page:
   title: Code Paster
-  useCdn: true
 
 recaptcha:
   enable: false

@@ -46,9 +46,6 @@ class DatabaseConfig {
 class PageConfig {
   @IsString()
   readonly title: string;
-
-  @IsBoolean()
-  readonly useCdn: boolean;
 }
 
 class RecaptchaConfig {
