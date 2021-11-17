@@ -38,20 +38,20 @@
         </div>
       </div>
     </div>
-    <div class='field' id='code-field'>
-      <label for='code'>代码</label>
-      <textarea name='code' id='code'
-                style='resize: none;' rows='25'
-                placeholder='在这里粘贴你的代码'></textarea>
+    <div class="field">
+      <label for="code">代码</label>
+      <textarea name="code" id="code"
+                style="resize: none;" rows="25"
+                placeholder="在这里粘贴你的代码"></textarea>
     </div>
     <% if (recaptchaSitekey) { %>
-      <div class='field'>
+      <div class="field">
         <label>人机验证</label>
-        <div id='recaptcha'></div>
+        <div id="recaptcha"></div>
       </div>
     <% } %>
-    <button class='ui large <% if(recaptchaSitekey) { %>disabled <% } %>green submit button'
-            id='submit-button' type='submit'>提交
+    <button class="ui large <% if(recaptchaSitekey) { %>disabled <% } %>green submit button"
+            id="submit-button" type="submit">提交
     </button>
   </form>
 </div>
