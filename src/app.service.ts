@@ -17,10 +17,11 @@ export class AppService {
     private readonly configService: ConfigService,
   ) {}
 
-  async verifyRecaptcha(recaptchaResponse: string): Promise<boolean> {
+  async verifyRecaptcha(recaptchaResponse: string, ip: string): Promise<boolean> {
     const body = stringify({
       secret: this.configService.config.recaptcha.secret,
       response: recaptchaResponse,
+      remoteip: ip,
     });
     const res = await axios.post(
       'https://www.recaptcha.net/recaptcha/api/siteverify',

@@ -40,7 +40,9 @@ export class AppController {
   @Redirect()
   async postPaster(@Req() req: Request, @Body() body: IndexBodyDto) {
     if (this.configSevice.config.recaptcha.enable) {
-      if (!(await this.appService.verifyRecaptcha(body['g-recaptcha-response']))) {
+      if (
+        !(await this.appService.verifyRecaptcha(body['g-recaptcha-response'], req.ip))
+      ) {
         throw new ErrorMessage(HttpStatus.FORBIDDEN, '人机验证未通过');
       }
     }
