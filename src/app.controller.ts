@@ -9,6 +9,7 @@ import {
   Render,
   Req,
 } from '@nestjs/common';
+import { Request } from 'express';
 import moment from 'moment';
 
 import { AppService } from './app.service';
@@ -37,7 +38,7 @@ export class AppController {
 
   @Post()
   @Redirect()
-  async postPaster(@Req() req, @Body() body: IndexBodyDto) {
+  async postPaster(@Req() req: Request, @Body() body: IndexBodyDto) {
     if (this.configSevice.config.recaptcha.enable) {
       if (!(await this.appService.verifyRecaptcha(body['g-recaptcha-response']))) {
         throw new ErrorMessage(HttpStatus.FORBIDDEN, '人机验证未通过');
@@ -48,6 +49,7 @@ export class AppController {
       parseInt(body.limit),
       body.lang,
       body.code,
+      req.ip,
     );
     return {
       url: `/paste/${paster.uuid}`,

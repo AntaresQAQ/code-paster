@@ -23,4 +23,7 @@ export class AppEntity {
 
   @Column({ type: 'longtext', nullable: false })
   code: string;
+
+  @Column({ type: 'char', length: 40 })
+  ip: string;
 }

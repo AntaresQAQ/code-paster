@@ -38,6 +38,7 @@ export class AppService {
     limit: number,
     lang: string,
     code: string,
+    ip: string = null,
   ): Promise<AppEntity> {
     const paster = this.appRepository.create();
     paster.uuid = UUIDv4();
@@ -46,6 +47,7 @@ export class AppService {
     paster.time = new Date();
     paster.expiration = limit ? new Date(Date.now() + limit * 24 * 60 * 60 * 1000) : null;
     paster.code = code;
+    paster.ip = ip;
     await this.appRepository.save(paster);
     return paster;
   }
