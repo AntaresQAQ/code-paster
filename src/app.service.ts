@@ -1,9 +1,9 @@
 import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import axios from 'axios';
+import { nanoid } from 'nanoid';
 import { stringify } from 'querystring';
 import { Repository } from 'typeorm';
-import { v4 as UUIDv4 } from 'uuid';
 
 import { AppEntity } from './app.entity';
 import { ConfigService } from './config/config.service';
@@ -30,8 +30,8 @@ export class AppService {
     return res.data.success;
   }
 
-  async findPasterByUUID(uuid: string): Promise<AppEntity> {
-    return await this.appRepository.findOne({ uuid });
+  async findPasterByUUID(uid: string): Promise<AppEntity> {
+    return await this.appRepository.findOne({ uid });
   }
 
   async createPaster(
@@ -42,7 +42,7 @@ export class AppService {
     ip: string = null,
   ): Promise<AppEntity> {
     const paster = this.appRepository.create();
-    paster.uuid = UUIDv4();
+    paster.uid = nanoid(15);
     paster.title = title;
     paster.lang = lang;
     paster.time = new Date();

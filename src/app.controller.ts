@@ -54,17 +54,17 @@ export class AppController {
       req.ip,
     );
     return {
-      url: `/paste/${paster.uuid}`,
+      url: `/paste/${paster.uid}`,
     };
   }
 
-  @Get('paste/:uuid')
+  @Get('paste/:uid')
   @Render('paste')
-  async getPasterText(@Param() { uuid }): Promise<PasteRenderDto> {
-    if (!uuid) {
+  async getPasterText(@Param() { uid }): Promise<PasteRenderDto> {
+    if (!uid) {
       throw new ErrorMessage(HttpStatus.NOT_FOUND, '没有这个文档');
     }
-    const paster = await this.appService.findPasterByUUID(uuid);
+    const paster = await this.appService.findPasterByUUID(uid);
     if (!paster) {
       throw new ErrorMessage(HttpStatus.NOT_FOUND, '没有这个文档');
     }

@@ -5,9 +5,9 @@ export class AppEntity {
   @PrimaryGeneratedColumn()
   readonly id: number;
 
-  @Column({ type: 'char', length: 36 })
+  @Column({ type: 'char', length: 15, nullable: false })
   @Index({ unique: true })
-  uuid: string;
+  uid: string;
 
   @Column({ type: 'varchar', length: 24, nullable: false })
   title: string;
