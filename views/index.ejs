@@ -80,6 +80,21 @@
       },
     });
     $('.dropdown').dropdown();
+
+    const $code = $('#code');
+
+    $code.keydown((e) => {
+      if(e.code === "Tab") {
+        const start = $code[0].selectionStart, end = $code[0].selectionEnd;
+        let value = $code.val();
+        value = value.substring(0, start)
+          + "\t"
+          + value.substring(end);
+        $code.val(value);
+        $code[0].selectionStart = $code[0].selectionEnd = start + 1;
+        e.preventDefault();
+      }
+    });
   });
 </script>
 
