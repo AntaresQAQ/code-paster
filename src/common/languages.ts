@@ -136,7 +136,7 @@ export const Languages: LanguageConfig[] = [
   { name: 'Roboconf', lang: 'graph' },
   { name: 'Ruby', lang: 'ruby' },
   { name: 'Rust', lang: 'rust' },
-  { name: 'SAS', lang: 'SAS' },
+  { name: 'SAS', lang: 'sas' },
   { name: 'SCSS', lang: 'scss' },
   { name: 'SQL', lang: 'sql' },
   { name: 'STEP Part 21', lang: 'p21' },
